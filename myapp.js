@@ -36,14 +36,22 @@ $('#dropdown li').on('click', function(){
       var cityMatch = 'It seems ' + weatherInfo.item.condition.text.toLowerCase()+' in '+ weatherInfo.location.city + ', ' + weatherInfo.location.country
       var noCity = 'Sorry, I found no city matching ' + city;
       if (data.query.count === 0 || data.query.results.channel.item.title === 'City not found') {
-      var date = data.query.results.channel.item.condition.date;
-      $(".date").html(date);  
+      var date = data.query.results.channel.item.condition.date;  
        return false;
       }
       console.log(weatherInfo);
-      $('＃temperature').text(weatherInfo.astronomy.sunrise);
+
+      $('.temperature').text(weatherInfo.item.condition.temp);
+      $('.des').text(weatherInfo.item.condition.text);
+      $('.date').text(weatherInfo.item.condition.date);
+      $('#date1').text(weatherInfo.item.forecast[1].date);
+      $('#date2').text(weatherInfo.item.forecast[2].date);
+      $('#date3').text(weatherInfo.item.forecast[3].date);
+      $('#tem1').text(weatherInfo.item.forecast[1].high);
+      $('#tem2').text(weatherInfo.item.forecast[2].high);
+      $('#tem3').text(weatherInfo.item.forecast[3].high);
       console.log(cityMatch);
-      console.log(noCity);
+      //console.log(noCity);
    }
  });
 
