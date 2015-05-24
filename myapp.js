@@ -39,7 +39,13 @@ $('#dropdown li').on('click', function(){
       var date = data.query.results.channel.item.condition.date;  
        return false;
       }
+      var tem1 = (weatherInfo.item.forecast[1].high-32)*5/9;
+      var tem2 = (weatherInfo.item.forecast[2].high-32)*5/9;
+      var tem3 = (weatherInfo.item.forecast[3].high-32)*5/9;
       console.log(weatherInfo);
+      console.log(tem1);
+      console.log(tem2);
+      console.log(tem3);
 
       $('.temperature').text(weatherInfo.item.condition.temp);
       $('.des').text(weatherInfo.item.condition.text);
@@ -47,9 +53,9 @@ $('#dropdown li').on('click', function(){
       $('#date1').text(weatherInfo.item.forecast[1].date);
       $('#date2').text(weatherInfo.item.forecast[2].date);
       $('#date3').text(weatherInfo.item.forecast[3].date);
-      $('#tem1').text(weatherInfo.item.forecast[1].high);
-      $('#tem2').text(weatherInfo.item.forecast[2].high);
-      $('#tem3').text(weatherInfo.item.forecast[3].high);
+      $('#tem1').text(tem1);
+      $('#tem2').text(tem2);
+      $('#tem3').text(tem3);
       console.log(cityMatch);
       //console.log(noCity);
    }
